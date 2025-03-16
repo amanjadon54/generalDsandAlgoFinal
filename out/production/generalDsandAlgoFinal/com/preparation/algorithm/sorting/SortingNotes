@@ -1,0 +1,30 @@
+
+ In merge sort,
+  *      worst case and average case has same complexities O(n log n).
+  *      Space complexity : o(N) for merge operation.
+
+  Efficiency:
+  * Merge sort is more efficient and works faster than quick sort in case of larger array size or datasets.
+  * whereas
+  * Quick sort is more efficient and works faster than merge sort in case of smaller array size or datasets.
+  *
+
+  Sorting method :
+  * The quick sort is internal sorting method where the data is sorted in sample.main memory.
+  * whereas
+  * The merge sort is external sorting method in which the data that is to be sorted cannot be accommodated in the memory and needed auxiliary memory for sorting.
+
+  Preferred for :
+  * Quick sort is preferred for arrays.
+  * whereas
+  * Merge sort is preferred for linked lists.
+
+ Arrays.sort() in java uses Quicksort for primitive types and Merge sort for objects.
+
+ Advantage of quick sort: does not take any extra space, does in place sorting.
+  *              Depth of recursion : Logarithmic with high probability
+  *
+  *
+ Insertion sort for small arrays : size ~ 10
+ Quick sort for slightly bigger array
+ Merge sort for Larger array , in million or billions

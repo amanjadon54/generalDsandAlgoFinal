@@ -1,0 +1,80 @@
+1. Arrays:
+    1. Kandane Algorithm : LongestContinousSum
+    2. Bayer Moore Alogrithm : MajorityElement
+           2. Find n/3 majority elemnt using above(2 majElement using Bayer moore)
+    3. Sum-k / HashMap(sum-k) : LongestConsecutive problems
+    4. Using index as count : CountingSort/ first missing +ve integer
+    5. Prefetch sum :
+    6. +50(start)/-50(end) : using prefetch to perform operations on a range of indexes.
+    7. Converting Char to Int : char-'a';
+    8. converting int to char : i-'0'
+    9. Median of 2 sorted Array : same size (Medium)
+                                  different size (hard)
+    10. Find longest consecutive range in an unordered array in linear time (HashMap with visited +1, -1)
+        Algoexpert
+    11.
+2 Matrix :
+    a. Rotate matrix by 90 clockwise/anticlockwise
+    b. search in matrix :
+      a. matrix elements are row and col sorted : start with topMost element and keep eliminating row,col.
+      b. row is sorted and next row start>prevRowEnd :  find the Ceil from the lastColumn and use that row. ONce found, apply bs on that row.
+         Find the max 1 submatrix with no zeroes in sorted row, col, binary matrix.(Easy, focus on first one in each row)
+
+    c. Spiral traverse : 4 for loops and with recursion / bottomLeft, bottomRight, topLeft, topRight.
+    d. Median in sorted Array
+    e.
+
+2. LinkedList:
+    1. reverse
+    2. find the mid in a single traversal
+    3. find last kth element.
+    4. Find loop
+    5. Total number of elements in a loop.
+    6. Break the loop (find total number of elements in a loop, 2 pointer, f->start, s-> start+noOfNodesInALoop,
+        where they meet, break it)
+    7. isPalindrome()
+    8. Sum2LinkedList
+    9. Add 1 to Linkedlist
+    10. Rearrange a LinkedList as f1,mid,f2,mid+1,f3,mid+3
+    11. Clone a linkedlist with random pointer
+    12. remove the current node(where you are stnding) in the linkedList. Head not given.
+    13. Flatten a linkedList having childNode.
+    14. Reverse in size k --> use start,end of a window.
+    15. Merge 2 sorted List without space.(using dummy)
+    16. Merge Ks' sorted List using priorityQueue and above merge.
+    17. Reverse a linkedlist in alternate k.
+
+3. Stack: FIFO
+    1. stock span problem
+    2. equal brackets.      --> https://leetcode.com/problems/interval-list-intersections/
+    3. Implement stack with queue/ queue with stack
+
+4. Queue : LIFO : BFS
+
+5. ArrayList --> built with arrays, Set --> built on top of HashMap.
+6. TreeMap : sorted by keys
+7. Trees:
+    1. Traversal : (DFS)pre, post, in, levelOrder(queue/BFS), vertical Order : Iteratively as well, boundary traversal
+    https://leetfree.com/problems/boundary-of-binary-tree
+    2. size
+    3. maxPathSum
+    4. minPathSum
+    5. FindAncestors of a node.
+    6. find all nodes at distance k from node --> find ancestors and use it. (Or, create Map<Node, ParentNode) and traverse this with visited/ AlgoExpert)
+    7. find max subTree : Diameter : Or similar question --> Find the maximum path sum between two leaves of a binary tree
+    8. top view, left view, right view
+    9. mirror of a tree(inversion)
+    10. https://leetcode.com/problems/delete-nodes-and-return-forest/submissions/
+    11. Zig Zag Traversal : Deque or Stack
+    12. Given a root of the tree, Find if tree is a valid BST or not : min & max use for each node. Inorder not efficient.
+c
+    BST : insertion, deletion, search
+    Heap:
+    AVL , Red Black tree
+    Tries
+
+8. Graph (already provided)
+9. Tries :
+    Wordchecker
+
+

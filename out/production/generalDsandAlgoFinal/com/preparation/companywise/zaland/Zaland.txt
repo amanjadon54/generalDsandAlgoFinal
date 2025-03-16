@@ -1,0 +1,35 @@
+1. Code pairing round : 2 problems : 1 on use of streams in java and other on design patterns to be solved.
+2. HLD : design an applciation which tells whether 2 people are directly/indirectly friends or not with
+        k=2 (depth).
+
+3. Coding : Discussions on monolithic vs microservies, resilience patterns, kafka, sync vs async, Monitoring
+            golden 4 metrices, databases.
+4. Team Matching : Discussions on previous projects, GC optimization, GC pause, distributed systems etc.
+5. Project discussion :
+
+
+Interviews:
+1. 1 hour round : Microservices, RestAPI
+				  Coding skills
+
+2. 3 interviews:
+
+a. System Design : Components, scalability, Ask Questions. : Design Authorization Service : for 2 user if connected.
+					1. Moving from Rust to Kotlin : Internal support issue/ Resources lack.
+					2. Fulfillment and Inventory : which warehouse to get the item from and where to store the data for inventory.
+
+b. General tech interview : Experience : Resilience pattern
+c. Team Fit: Disagree/conflict with manager/team, Conflict mgmt, cultural values.
+
+Resilience pattern in microservices                         :
+	Circuit breaker
+	retries
+	X-reuest_id coorelationId
+	timeouts
+	RateLimiter
+	deadletterqueue
+	keys expiration
+	lock expiration
+
+https://dzone.com/articles/the-hardest-part-of-microservices-calling-your-ser
+https://blog.christianposta.com/deploy/blue-green-deployments-a-b-testing-and-canary-releases/

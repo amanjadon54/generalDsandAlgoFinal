@@ -1,0 +1,4 @@
+1. https://leetcode.com/problems/guess-the-word/                                --> randomize first pick
+2. https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards       --> Prefetch sum & 2p
+3. https://leetcode.com/problems/string-transforms-into-another-string          --> No way if all chars used.
+4. https://leetcode.com/problems/find-leaves-of-binary-tree                     --> heights

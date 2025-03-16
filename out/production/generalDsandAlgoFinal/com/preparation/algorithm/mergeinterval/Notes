@@ -1,0 +1,133 @@
+https://leetcode.com/problems/interval-list-intersections/
+https://leetcode.com/problems/insert-interval/
+
+
+https://leetcode.com/problems/exclusive-time-of-functions/ -->  --> input sets are similar to equal brackets problem.
+
+https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/submissions/   --> sort the array by end time asc. Then find totalnonoverlapping.
+
+
+Algo1 : TargetMap , and used it for skills searching
+target --> [y,u,b,o,p]   --> y:true
+                             u:true
+                             b:true
+                             o:true
+                             p:true
+
+aman -->   [a, b, c,d,f,e,w,r,t]  --> 1                     s * t(1)   --> s*1  --> o(s) * c
+billu -->  [q,w,e,r,t,y,u,i,o,p]  --> 4
+chaman --> [,q,e,r,t,y,x,c,v,b,n,m] --> 2
+
+o(target) + o(s*c)
+
+// targetMap  --> key--> hashcode
+entry.key.filter(x - > targetMap.get(x));
+
+
+------------------------------------------------------------------------
+Algo 2:  skillsMap : ordered candidates (intersection of candidates)
+
+skills : candidate
+java   : [c1,c2,c3]
+reactJs: [c4]
+
+java, reactjs
+
+
+target << skills
+
+
+s1  --> 10
+s2 --> 20
+s3 --> 30
+s4--> 20
+s5 --> 10
+
+[c1,c2,c3,c4,c5]
+[c1,c3,c6,c7]
+
+
+---------------------------------------------------------------------------
+Algo3 : candidateMap : ordered skills
+
+
+target --> [y,u,b,o,p]   --> y:true
+                             u:true
+                             b:true
+                             o:true
+                             p:true
+
+aman -->   [a, b, c,d,f,e,w,r,t]  --> 1                     s * t(1)   --> s*1  --> o(s) * c
+billu -->  [q,w,e,r,t,y,u,i,o,p]  --> 4
+chaman --> [,q,e,r,t,y,x,c,v,b,n,m] --> 2
+
+o(target) + o(s*c)
+
+
+o(target) + o(s*c) ~n^2
+c*(min(t,s)*logs) --> n^2logn
+s*(c * logc); ~n^2 logn
+
+
+
+
+-----------------------------------------
+ADDITIONAL WAYS OF MAKING API BETTER :
+
+time complexity :
+
+post --> db : 10ms   --> skills to candidate Map(sortedManner) : 200ms
+
+get --> complexity :
+
+
+-------------------------------------------
+
+SOAP(xml)    +     REST --> readable --> verbs/nouns
+                                         GET/post/put/delete
+
+                                         GET ?name=aman  --> db update. --> idempotent --> state
+
+
+                                         /v1/candidate
+
+                                         /v2/candidate
+
+                                         GET candidate?skills=
+                                         POST candidate :
+                                         PUT candidate : JSON/TEXT
+
+
+                                         {
+                                         	"id" : "1",
+                                           "name" : "aman",
+                                          "skills": ["java","react"]
+                                         }
+
+
+                                         class CandidateRequest{
+                                            @name("canidadateId")
+                                            String id;
+                                            String name;
+                                            List<String> skills;
+
+                                         }
+
+                                         CandidateResponse
+
+                                         CandidateRequest  candidateRequest= req.body
+                                                                             req.body<CandidateRequest>
+
+                                           @Post()
+                                          public addCandidate(CandidateRequest candidateRequest){
+
+                                                return object;
+                                          }
+
+                                          //marshalling  --> Json body --> request   --> object -> reprsentative
+                                          //unmarshalling --> object --> JSON
+
+
+
+
+

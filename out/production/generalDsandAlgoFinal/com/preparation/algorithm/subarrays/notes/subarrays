@@ -1,0 +1,4 @@
+Properties:
+1. Total time an element comes in all subarrays = (n-i)*(i+1) where n=total elements of an array and i is index.
+2. Use HashMap algorithm to find all subarrays with sum k. Also called as complement algorithm
+    since we store complement, sum-k;

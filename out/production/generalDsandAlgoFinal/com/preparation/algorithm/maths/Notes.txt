@@ -1,0 +1,16 @@
+1. Find the smallest missing sum which cant be computed from the elements sum(used in any manner)
+    1,2,3,6  --> 13
+
+    1,2,5,6 --> 4
+
+    Hint: idea is to keep computing the prefix sum and check whether prefixSum+1 < nextElement
+            if(yes)
+                then prefixSum+1 is the ans
+
+
+2. Convert a repeated sequence in the following manner.
+    10.3 --> 3.3333..  --> 3.(3)
+    Constraint: cant store the result in float/double at all.
+    Idea: to understand if a number is repeated, dont go for divide and then search in string
+          Instead, use the concept of remainder, meaning if the remainder has occured before
+          which means it will now repeat.

@@ -1,0 +1,71 @@
+Property:
+https://emre.me/computer-science/bit-manipulation-tricks/
+
+1. Binary xor --> for same values it will result in 0 else 1. i.e. 0 ^ 0 = 0 , 1 ^ 1 = 1
+2. Binary subtraction --> 0-1 = 1(borrow from left side), 1-0 = 0 , 1-1=0
+    Also, Binary subtraction is arithmetic, means if we are subtracting 10-3 = 7. in binary so we can directly do that also.
+
+3. If we subtract a number x and x-1 it will result in all 1's after the rightmost one.
+    The property is, the difference between a binary number n and n-1 is all the bits on the right of the rightmost 1 are flipped including the rightmost 1
+    Example:
+    1000 – 0001 = 0111  --> after the right most one which in this case is at the 4th digit, all has turned one and the rightmost in to 0. i.e. flipped
+
+     111000 -->n
+     110111 --> n-1
+     001000
+
+     001000
+     0-1 -->1
+
+    0100 – 0001 = 0011 --> same
+
+    1100 – 0001 = 1011
+
+    n n-1
+
+4. So using above property if you want to find the rightmost set bit.
+    then
+    x & ~(x-1) --> will always give the rightmost set bit only with all other as 0.
+
+    How this works?
+    Let’s dig little deep to see how this expression will work.
+    We know that N & ~N = 0
+    If we subtract 1 from the number, it will be subtracted from the right most set bit and that bit will be become 0.
+    So if we negate the remaining number from step above then that bit will become 1.
+    Now N & ~(N-1) will make all the bits 0 but the right most set bit of a number.
+
+6. Using aboveproperty you can find if an element has this bit as set or not set. by performin and and with above result
+    element & set_bit_from_above_number
+
+5. Popular data structure based on this ,
+    ( If you have a CS background and understood whatever i have said up till now, then congrats!
+     You now already know 80% about a powerful data structure called Fenwick Tree or Binary Indexed Tree. )
+
+
+6. How to detect even odd in bits?
+    simple if lsb is 1 then odd else even. Obvious no? last bit is always 2^0*1 or 2^0*0 , remaining all are always be even.
+    So to find:
+    find whether lsb is 1 or 0
+    to do that even
+    AND it with 1. if(0) odd else even
+
+7. How to detect if nth bit is set in bits.
+    Simple. use left shift. ANd then AND it with the number.
+    ex
+    175 check if 5th bit is set
+    175 --> 1010 1111
+
+    left shift 1 with 5
+    1<<5
+
+    1010 1111
+    0010 0000 (1<<5) AND now
+    0010 0000 (if same ans as 1<<5 then yes it is set else not)
+
+    Fromula = num & (1<<n)
+
+8. Set nth bit if not set
+    use OR in above
+
+9. MOST IMP : unset nth bit if it is not already unset
+    num & ~(1<<n)

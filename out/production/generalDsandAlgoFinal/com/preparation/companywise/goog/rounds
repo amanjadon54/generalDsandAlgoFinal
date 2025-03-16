@@ -1,0 +1,13 @@
+1. Design a data structure which can tell if a start,end range overlaps or not in any existing range.
+    should allow to add a range/ remove a range.
+    https://leetcode.com/problems/range-module/
+
+
+2. Design knight move(minimum) in chess so that it can reach to a particular destination in an infinite board.
+    Followup : what if there are certain positions which are inaccessible, how will you trace the move now.
+    https://leetcode.com/discuss/interview-question/322837/Google-or-Onsite-interview-or-Knight's-Shortest-Path-on-an-Infinite-Chessboard
+    https://leetcode.com/problems/escape-a-large-maze
+
+3. Find the route following which a user can get more fun.
+    City have fun value and path is given for each cities. you can only visit 4 cities, find the max value.
+

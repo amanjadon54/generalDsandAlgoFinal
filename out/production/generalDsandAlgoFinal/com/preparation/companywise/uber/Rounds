@@ -1,0 +1,12 @@
+DSA:
+    1. Design the calendar meeting algorithm of 2 people, where a user can book room for more than 15 mins.
+        solution proposed: TreeMap with getFloor, getCeil.
+    2. Reformat the log in a paragraph.
+        https://leetcode.com/problems/text-justification/
+
+Design:
+    1. HLD : Design a Stock alert platform where user can subscribe and get alerts if the prices varies
+        more than 5%.
+    2. BarRaiser : Project discussion on architecture, contributions, timelines, testing, deployment etc.
+
+    

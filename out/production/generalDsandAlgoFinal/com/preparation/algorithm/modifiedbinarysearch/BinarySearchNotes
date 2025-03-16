@@ -1,0 +1,33 @@
+BS:
+Property:
+A. if the element is not found in binarySearch then after the end of while loop. start and end will be pointing to the
+    neighbours of that element, if it was there.
+
+    meaning start --> floor
+    end --> ceil
+
+    this is one of the way to find ceil and floor.
+
+1. FindCeil/floor
+2. First and last occurence, count of an element.
+3. search in matrix :
+    a. matrix elements are row and col sorted : reduce col,row accordingly
+    b. row is sorted and next row start>prevRowEnd :
+
+4. rotated element, search in rotated array.
+5. peak element.
+6. Bitonic array --> first increasing then decreasing and arr[i]!=arr[i+1] for all i
+    Bitonic Array will only have one peak element always.
+7. Find A Missing number in sorted array of all other duplicates: o(logn)
+    Hint: missing number would always be on the side where there are odd number of elements excluding.
+    itself(middle)
+
+    Find A Missing number in non-sorted array of all other duplicates with values in range 1..n+1
+    a. can use modulus here like storing each value as its -ve and while reading modulus.
+    b. If array modification is now allowed:
+        https://leetcode.com/problems/find-the-duplicate-number
+8. find Number in sorted running stream.
+9. Allocate pages of books(Hard)
+10. Find K closest elements of x in sorted array.
+
+

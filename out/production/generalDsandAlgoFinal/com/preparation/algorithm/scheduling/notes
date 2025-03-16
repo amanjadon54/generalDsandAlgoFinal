@@ -1,0 +1,12 @@
+Meeting room:
+1. Sort the array by start time.
+2. Push the first meeting in a min heap of end times.
+3. Iterate through meetings. If the earliest ending meeting has ended when the current meeting starts,
+   i.e. heap.root.end <= current meeting's start, pop from heap.
+4. Push this meeting in the heap
+5. Required number of rooms = Heap size at the end
+   Time/Space: O(n.lg n)/O(n), where n is number of meetings
+
+
+Similar Questions:
+https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/submissions/   --> sort the array by end time asc. Then find totalnonoverlapping.

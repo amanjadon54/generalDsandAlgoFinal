@@ -1,0 +1,11 @@
+1. Storing values at their indices.
+2. In case of negative, store it with negative sign and while traversing obtain the absolute for index. (or move negative
+    to either front or last and then proceed).
+3. For a range of queries on indexes, perform the operation on start index, and perform the opposite on endIndex+1, then
+    prefetch will build the array.
+4. UnionFind.
+5. Shortest Distance is BFS.(first encountered)
+6. In Case of trees, if we want to return 2 values, return it as LinkedList.
+7. In case of circular traversal, we can obtain as idx = i % totalLength. Some example, find the immediate greater
+    element on right side in circular array.
+8. pick from front or last / replace max with min atmost 3 values : idea is to check with last k and first k

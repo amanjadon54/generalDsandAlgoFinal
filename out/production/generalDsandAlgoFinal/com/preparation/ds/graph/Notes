@@ -1,0 +1,172 @@
+Types of graph:
+1. Regular Graph : each vertices has the same degree.
+2. Complete graph : each vertex is connected with all other vertices directly. (degree v-1 each)
+3. Connected graph : all nodes are reachable from all other nodes either directly/indirectly.
+4. Directed graph  with direction
+5. Undirected graph  bi direction
+6. Acyclic graph  no cycles like DAG  directed Acyclic graph --> All trees are DAG, but all DAGs are not trees
+7. Strongly connected Components  can be thought of as self contained cycles within a
+    DIRECTED graph where every vertex in a given cycle can reach every other vertex in
+    the same cycle.
+
+Famous Algorithms:
+1. BFS : unweighted (Shortest path, works that if encountered the target node , the first encounter would be the shortest)
+2. DFS
+3. Topological sort : Ordering of nodes, Shortest path for DAG +ve and -ve weights.
+4. Dijkstra : Greedy, shortest path +ve weights. (Source to Target) : ( V + ElogV)
+5. BellmanFoerd: DP, shortest path +ve,-ve weights. Can be used for -ve cycle detection. (S to T) (EV)
+6. Floyd Warshall??
+7. MST(Connected graph) : Prims : Greedy
+         Kruskal : Start from node and consider its children
+
+
+
+Algorithms:
+1. MST:
+    1. Kruskal's Algorithm
+    2. Prim's Algorithm
+
+2. SHORTEST PATH PROBLEM FROM Source to Target Vertex
+    1. BFS : unweighted graph(first node encountered will be the shortest path)
+               https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/solution/
+    2. Dijkstra : weighted and no –ve edge. (BFS + priorityQueue over queue)
+    3. Bellman Ford: weighted and considers –ve edge.
+    4. Topological sort can be used for +ve and -ve edge to find shortest distance,
+        provided graph is DAG.
+
+3. LONGEST PATH FROM SOURCE TO DESTINATION : NP-Hard but if DAG, can be solved in O(V+E):
+    Trick : multiply all edge values by -1 and find the shortest path and then multiply
+            the edge values by -1 again.
+
+4. ALL PATH SHORTEST DISTANCE:
+    1. Floyd warshall
+
+5. Connectivity: Does path exist between A and B?
+    1. BFS
+    2. DFS
+
+6. Negative cycles : Does negative cycle exist --> might not want to consider such cycle in path
+    1. Bellman Ford
+    2. Floyd Warshall
+
+7. Strongly connected components:
+    1. Kosaraju
+    2. Tarjan’s : also used for finding if the graphs contain cycle.
+
+8. TSP : Travelling salesman problem  visiting all other vertices exactly once and come back
+        to the source vertex. It is an NP-hard problem
+        Traveling Salesman Problem
+
+        BruteForce : O(n!)
+        DP : (N*2^n)
+
+        Given a set of cities and the cost of travel between each pair of them,
+        the traveling salesman problem(TSP) is to find the cheapest way of visiting all
+        of the cities and returning to your starting point.
+
+        The simplicity of the statement of the problem is deceptive.
+        TSP is one of the most intensely studied problems in computational mathematics and
+        yet no effective solution method is known for the general case.
+        Indeed, the resolution of the TSP would settle the P versus NP problem and fetch a
+        $1,000,000 prize from the Clay Mathematics Institute.
+
+        Minimum Spanning Tree Problem(MST)
+        Consider this problem - Given a set of cities how can you connect all the cities
+        such that the distances between them are minimized. It’s pretty obvious that the
+        cities can have multiple routes connecting them. To solve this we can use
+        Greedy Algorithm approach.
+
+        Expanding on this idea - in graph theory, a Spanning Tree of an undirected graph
+        is a subgraph, that is a tree, which includes all of the vertices of G,
+        with minimum possible number of edges.
+
+        A Graph can have multiple spanning trees. And the problem asks us to find the one
+        with minimum edge costs.
+
+  a. Hamiltonian cycle : a subset of TSP,
+                        in an undirected graph is a path that visits each vertex exactly once.
+                        except the start, where it comes back to.
+                        Example
+                         {0, 1, 2, 4, 3, 0}.
+
+                         Tsp is to find minimum Hamiltonian cycle
+                         Hamiltonian cycle is to find all paths which start from source
+                         and come back to it, visiting all other exactly once.
+
+9. Network Flow:
+    1. Ford-fulkerson
+    2. Edmonds karp and Dinic algorithm
+
+10. Bridges in a graph
+
+11. Topological sort: Find relation/dependecy in graph which needs to be built first than the target
+    1. Example maven dependency tree
+    2. Gradle build tree
+    3. Recipe making instructions.
+    4. Alien dictionary etc.
+    Time Complexity : O(V+E)
+    Topological orderings are not unique
+
+    Topological can only be applied to DAG , if cycle is there it cant be done, hence cyclic
+    dependencies are always issue.
+
+For Path Finding: (we can use BFS,DFS, or Dijkstra)
+
+Dijkstra = BFS + priorityQueue over normal Queue(becomes DFS with priority Queue since
+                        since we are randomly visiting element than level order)
+           One constraint for Dijkstra algo is that the graph must only contain +ve edge
+           weights. This constraint is imposed to ensure that once a node has been visited
+           /relaxed its optimcal distance cannot be improved.
+
+           This property is especially important because it enables Dijkstra's algorithm
+           to act in a greedy manner by always selecting the next most promising node.
+
+1. if path has weights, then Dijkstra is preferred (though can be solved using BFS also)
+2. If path has -ve weights also,
+    Topological sort(if DAG) or
+    simple backtracking + dp is preferred called as bellman ford
+    The Bellman-Ford is pretty much the same as the DP approach except that it is more space-optimized.
+    The Bellman–Ford algorithm is an algorithm that computes shortest paths from a single source vertex to all of the other vertices
+    in a weighted digraph. It is slower than Dijkstra's algorithm for the same problem, but more versatile, as it is capable of handling graphs
+    in which some of the edge weights are negative numbers.
+3. If weight are constant for each path use any from BFS,DFS.
+
+
+BELLMAN FORD ALGORITHM: (works for negative cycles)
+        Negative cycle is an issue, since if we revisit the graph again, -ve cycle will ensure that the shortest path value keep
+        changing.
+
+        Algorithm is run twice on all nodes.
+        Second time is done to check if the shortest distance array computed from first run is being affected by second run.
+        If, it is being affected which means there is a -ve cycle and hence it can be used to detect such cycle. Since all nodes
+        for which it is changing are the nodes in the -ve cycle, mark them as infinty for reference.
+
+        If not, then no -ve cycles in the graph.
+
+        Algorithm : For each node , compute the distance of other node and update the distance array if it is less than the
+                    existing distance. While starting with other node in iteration, take the minNode of that from distance as
+                    existing weight(min to reach here).
+            //1 Run:
+            for(int i=1;i<=V;i++){
+                for(Edge e : graph.get(i)){
+                    int existingWeight = distance[i]; //min existing weight to reach at the ith vertex
+                    distance[e.to] = Math.min(distance[e.to] , existingWeight + e.weight);
+                }
+            }
+
+            //2Run:
+            for(int i=1;i<=V;i++){
+                for(Edge e : graph.get(i)){
+                    int existingWeight = distance[i];
+                    if(existingWeight + e.weight  < distance[e.to] ){
+                        //this is part of negative cycle
+                        distance[edge.to] = Integer.MAX_VALUE
+                    }
+                }
+            }
+
+
+
+Probs:
+1. Find min/max , always an issue.
+2. count is fine.

@@ -1,0 +1,17 @@
+Questions like:
+1. Sum of pair with k in sorted array. (Pair sum)
+    We can also use Hashmap here, with complement(i.e. if k-element) exist , pair exist.
+
+2. 3 element pair sum
+    https://leetcode.com/problems/3sum/
+    can be solved by traversing elements and for each element apply the algot to find a pair
+    with sum k, where k=complement of current element.
+    o(n^2)
+
+    Also,
+    using HashMap can be solved but again o(n^2)
+
+    https://fizzbuzzed.com/top-interview-questions-1/
+
+3. https://leetcode.com/problems/container-with-most-water/
+RainWater

@@ -1,0 +1,87 @@
+1. find the min cheques to be taken out of deck of cheques(cant sort) to get the exact amount of K.
+    if cant be return -1;
+
+    Algo:
+        1. lSum (prefetch sum from left)
+        2. RSumMap (traversing from right to left and maintain a Map of sum to index)
+        3. For each possible i, check what will be the minimum if a sum can be obtained.
+
+    example:
+    [2,3,5,4,2,1,1,1] , k=5
+    output: 2 (2,3)
+
+    lSum
+    [2,5,10,14,16,17,18,19]
+
+    rMap
+    1:7
+    2:6
+    3:5
+    5:4
+    9:3
+    14:2
+    17:1
+    19:0
+
+    int minLength=Integer.MAX_VALUE;
+    for(int i=1;i<arr.length;i++){
+        int diff = k-arr[i];
+        if(diff==0){
+            minLength = Math.min(minLength,i);
+        }else if(diff<0){
+            break;
+        }else{
+            //check the diff from back to get possible answer
+            if(rMap.containsKey(diff)){
+
+                int pos = rMap.containsKey(diff);
+                int len = arr.length-(i+arr.length-pos+1);
+                minLength= Math.min(minLength, len);
+            }
+        }
+    }
+    return minLength==Integer.MAX_VALUE?-1:minLength;
+
+
+
+2. Given a  array , return the min elements to remove to get the Amax-Amin <=k
+    [1,2,3,6,9,12,17,17,17,17,17,20], k=5
+
+    a. sort the array.
+    b. for each position in array (partition key), check in left(using binary search which can give Diff of max and min as <k),
+        consider that as elements which are remaining, so arr.length-(partitionKey-i+1) as removals;
+    c. Keep performing this to find min removals length
+    Time complexity: o(nlogn).
+
+
+3. Tech design:  Which requires more ThreadPool --> CPU intensive or IO intensive operations.
+                 GC pause
+                 Load balancing ways
+                 read from recent write cluster in write heavy system with eventual consistency.
+
+
+4. LLD : Design a Locker Management system,
+        1. User should able to lock locker with otp/tommrrow with fingerprint.
+        2. Delivery guy should able to lock unlock it etc.
+
+5. System Design:
+    Design the E2E Arch of an online auction system.
+
+    In this system there are 100s of thousands of auctions going on in parallel and more popping up.
+    Across all these auctions put together there are about millions of bids happening as well.
+
+    0. create an auction.  --> type, price, customizatble auction end time.   --> 1...1 item details.
+    1. bid  --> auctionId, price  --> mutiple bids by the same user. next bid higher.
+    2. End of the auction : time.  --> higher bid always.
+
+    2. At any point an auction should display the highest bid so far
+    3. at the end of the auction it should display the highest bid + the top 3 bids made so far.
+    4. An auction can last for a max of 24 hours.
+
+
+    Learning : High concurrency/ like max Bidding should only be allowed --> needs to move as
+                async job for faster operation and solving concurrency issues.
+                Same in Amazon order --> it says order placed, not order approved considering
+                                        concurrency in such high load system.
+
+                ETag is versioning.

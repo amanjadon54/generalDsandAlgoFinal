@@ -1,0 +1,17 @@
+Techniques:
+
+1. Prefetch sum boundary, add amount to range --> add to start and subtract equivalent to end+1 index.
+    prefetch sum will give you exact values.
+
+    alternative: Segment tree.
+
+2. Find first missing positive number:
+    use indexing for storing the number in their respecitve position,
+    in case of -ve allowed, move all negative at end.
+
+3. sum-k algo for finding pair.
+4. sum-k with hashmap for finding subarray with modification.
+
+5. Matrix rotation 90 clockwise/anticlockwise
+6. https://leetcode.com/problems/set-matrix-zeroes
+

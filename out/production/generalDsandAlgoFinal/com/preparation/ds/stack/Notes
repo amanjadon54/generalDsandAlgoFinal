@@ -1,0 +1,35 @@
+1. Nearest Greater to right
+2. NGL
+3. Nearest smaller to left
+4. NSR
+5. Stock span problem
+6. Maximum Area Historgram
+        O(n^3)  --> normal travsersing and computing the sum of lower.
+        o(n^2) --> considering it as subarrays and computing the common sum of each and swapping accordingly
+        o(n) --> Use stack: (storing indexes for computation)
+                if (stack.isEmpty() || s.peek() < nums[i])
+                    s.push(i++);
+                else
+                    height = s.pop();
+                    width = (s.peek() - i -1);
+                    area = Math.max(area,width*height);
+
+                After 1st loop if stack is not empty which means there is more computation:
+                traverse and compute width and height.
+
+    Idea is: if in a stack you have 4,5(peek) meaning that the index of 4 a and index of 5 lets say b , between b and a you have common as 5.
+    example nums --> 4,6,5
+    now once you will create a stack of it. It will finally be 4,5 with index as 0,2 which mean from 2 to 0 there is a common 5 like in this
+    case index 1 and 2.
+
+    https://www.youtube.com/watch?time_continue=3&v=zx5Sw9130L0&feature=emb_logo
+
+    Approach in laymen term:
+    Create a stack of index of common elements.
+
+
+7. Max Area rectangle in binary matrix :
+8. Rain water Trapping
+9. Min ELement in stack with extra space
+10. Min element in stack in o(1) space  --> X
+11. Bracket equals
